@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+{% block main %}
+<ul class="breadcrumb">
+    <li><a href="/">管理首页</a></li>
+    <li><a href="#">分类列表</a></li>
+</ul>
+<h3>用户列表</h3>
+<table class="table table-striped">
+    <tr>
+        <th>序号</th>
+        <th>用户id</th>
+        <th>分类名称</th>
+        <th>密码</th>
+    </tr>
+    {% for index,category in categoryies %}
+    <tr>
+        <td>{{index+1}}</td>
+        <td>{{category._id.toString()}}</td>
+        <td>{{category.name}}</td>
+        <td>
+            <a href="/admin/category/edit?id={{category._id.toString()}}">修改</a> | 
+            <a href="/admin/category/delete?id={{category._id.toString()}}">删除</a>
+        </td>
+    </tr>
+    {%endfor%}
+</table>
+{% include 'page.html' %}
+
+{% endblock %}
+

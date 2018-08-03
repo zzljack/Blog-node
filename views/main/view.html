@@ -1,0 +1,46 @@
+{%extends 'layout.html'%}
+{%block content%}
+<div class="listBox">
+    <h1>{{content.title}}</h1>
+    <p class="colDefault">
+        作者：<span class="colInfo">{{content.user.username}}</span>
+        时间：<span class="colInfo">{{content.addTime|date('y-m-d H:i:s')}}</span>
+        阅读：<span class="colInfo">{{content.views}}</span>
+        评论：<span class="colInfo">10</span>
+    </p>
+    <dfn>
+        {{content.content}}
+    </dfn>
+</div>
+<div class="listBox message">
+    <h3 class="textLeft"><strong>评论</strong> <span class="em">一共有 <em id="messageCount">0</em> 条评论</span></h3>
+    
+    
+    {%if userInfo._id%}
+    <p class="textLeft">zmouse</p>
+    <p class="textLeft clear">
+        <textarea id="messageContent"></textarea>
+        <input type="hidden" name="" id="contentId" value="{{content.id}}">
+        <button id="messageBtn" class="submit">提交</button>
+    </p>
+    {%else%}
+    <p class="bgDanger" style="line-height: 30px;">你还没有登录，请先登录！</p>
+    {%endif%}
+
+    <div class="messageList" style="display: block;"></div>
+
+    <div class="pager">
+        <ul class="clear">
+            <li class="previous">
+                <a href="javascript:;">上一页</a>
+            </li>
+            <li class="pageNum"></li>
+            <li class="next">
+                <a href="javascript:;">下一页</a>
+            </li>
+        </ul>
+    </div>
+
+</div>
+<script src="/public/js/comment.js"></script>
+{%endblock%}
