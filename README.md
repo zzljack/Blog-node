@@ -31,6 +31,9 @@ https://www.mongodb.com/download-center?jmp=nav#community
 # 可以下载mongodb数据库可视化工具
 https://robomongo.org/campaign   (Robo) 
 
+#创建数据库存储目录
+在目录里创建一个db文件夹
+
 # 进入下载的mongodb文件中\mongodb\bin
 mongod --dbpath=数据库存储目录 --port=端口号
 
